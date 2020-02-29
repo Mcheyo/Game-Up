@@ -10,7 +10,7 @@ require 'byebug'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#Game.destroy_all
+Game.destroy_all
 # User.destroy_all
 # User_Game.destroy_all
 
