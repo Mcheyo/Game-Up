@@ -34,8 +34,19 @@ def get_game_detail
         rating = game["rating"]
         metacritic = game["metacritic"]
         playtime = game["playtime"]
-        clip = (game["clip"] === nil ? "youtube.com" : game["clip"]["clip"]) 
-    Game.find_or_create_by(database_id: database_id, name: name, released: released, background_image: background_image, rating: rating, metacritic: metacritic, playtime:playtime, clip:clip)
+        clip = (game["clip"] === nil ? nil : game["clip"]["clip"]) 
+        suggestedData = RestClient.get("https://api.rawg.io/api/games/#{database_id}/suggested")
+        suggested = JSON.parse(suggestedData)["results"]
+        # suggested.map do |suggestedGame|
+            # suggestedGame["name"]
+            # suggestedGame["background_image"]
+            # suggestedGame["short_description"]
+        # end
+        suggested_description = suggested.first["short_description"]
+        suggested_background_image = suggested.first["background_image"]
+        suggested_name = suggested.first["name"]
+
+    Game.find_or_create_by(database_id: database_id, name: name, released: released, background_image: background_image, rating: rating, metacritic: metacritic, playtime:playtime, clip:clip, suggested_description: suggested_description, suggested_background_image: suggested_background_image, suggested_name: suggested_name)
     end
 
 end 
