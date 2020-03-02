@@ -6,11 +6,12 @@ class UsersController < ApplicationController
     end 
 
     def show 
-        @user = User.find_by(id: params[:id])
-        render json: @user
+        user = User.find_by(id: params[:id])
+        render json: user
     end 
 
     def create 
-        @user = User.create(params.require(:user).permit!)
+        user = User.create(params.require(:user).permit!)
+        render json: user
     end 
 end
