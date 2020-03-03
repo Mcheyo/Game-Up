@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :games 
   resources :users
   post '/login', to: 'auth#fake_create'
+  post '/destroy', to: 'user_games#destroy'
   end 
 
