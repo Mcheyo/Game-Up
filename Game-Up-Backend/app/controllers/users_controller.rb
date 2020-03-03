@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def show 
         user = User.find_by(id: params[:id])
-        render json: user
+        render json: user.to_json(include: {games: {only: [:name]}})
     end 
 
     def create 
@@ -17,4 +17,5 @@ class UsersController < ApplicationController
 
     def profile 
     end 
+
 end

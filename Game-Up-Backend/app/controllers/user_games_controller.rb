@@ -15,4 +15,5 @@ class UserGamesController < ApplicationController
         render json: user_game
     end 
 
+
 end
