@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def show 
         user = User.find_by(id: params[:id])
-        render json: user.to_json(include: {games: {only: [:name]}})
+        render json: user.to_json(include: {games: {only: [:name, :background_image]}})
     end 
 
     def create 

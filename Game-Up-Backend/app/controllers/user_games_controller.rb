@@ -17,7 +17,7 @@ class UserGamesController < ApplicationController
 
     def destroy 
     user_game = UserGame.find_by(user_id: params[:user_id], game_id: params[:game_id])
-    byebug
+    
     user_game.destroy
     end 
 
