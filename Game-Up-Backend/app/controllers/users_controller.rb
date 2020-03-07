@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     end 
 
     def create 
-        user = User.create(params.require(:user).permit!)
+        user = User.create(name: params["name"], profile:params["profile"], password:params["password"]) 
         
         if user.valid? 
         render json: user
