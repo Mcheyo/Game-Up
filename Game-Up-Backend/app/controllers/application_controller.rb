@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
-    def secret_key
-        "h3ll0"
-      end
+   def secret_key
+    Rails.application.credentials.secret_key
+   end 
       #take some user payload and generate a token
   def encode(payload)
     #return token

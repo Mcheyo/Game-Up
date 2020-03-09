@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     def profile 
         
         token = request.headers["Authentication"]
+        byebug
         user = User.find(decode(token)["id"])
         render json: user
     end 
